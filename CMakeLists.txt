@@ -6,6 +6,11 @@ set("OpenCV_DIR" "C:/OpenCV/Builds/install/")
 
 find_package(OpenCV REQUIRED)
 
-add_executable(WebcamColorSegmentation WebcamColorSegmentation.cpp)
+set(IMAGE_ANALYSIS_INCLUDEPATHS
+  ${CMAKE_SOURCE_DIR}/src/include
+  ${CMAKE_SOURCE_DIR}/src/lib/Detector  
+  ${OpenCV_INCLUDE_DIRS}
+  )
 
-target_link_libraries(ImageAnalysis ${OpenCV_LIBS} )
+add_subdirectory(src)
+
